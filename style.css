@@ -1,0 +1,121 @@
+/* === BASE SETUP === */
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  color: #00ffff;
+  font-family: 'Share Tech Mono', monospace;
+  overflow: hidden;
+  height: 100vh;
+}
+
+#container {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
+h1#dayview {
+  font-size: 3.5rem;
+  letter-spacing: 0.2rem;
+  text-shadow: 0 0 5px #00ffff, 0 0 20px #00ffff;
+  margin-bottom: 0.5rem;
+  animation: pulse 3s infinite;
+}
+
+#subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: #66ffff;
+}
+
+.project {
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid #00ffff;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #00ffff66;
+}
+
+nav {
+  margin-top: 2rem;
+}
+
+.link {
+  color: #00ffff;
+  text-decoration: none;
+  margin: 0 1rem;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s;
+}
+
+.link:hover {
+  border-color: #00ffff;
+}
+
+footer {
+  font-size: 0.9rem;
+  margin-top: 4rem;
+  color: #008888;
+}
+
+/* === ANIMATIONS === */
+@keyframes pulse {
+  0% {
+    text-shadow: 0 0 5px #00ffff;
+  }
+  50% {
+    text-shadow: 0 0 15px #00ffff;
+  }
+  100% {
+    text-shadow: 0 0 5px #00ffff;
+  }
+}
+
+/* === PIXEL RAIN === */
+#pixelRain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.pixelDrop {
+  position: absolute;
+  width: 2px;
+  background: #00ffff;
+  opacity: 0.6;
+  border-radius: 1px;
+}
+
+/* === SCANLINES === */
+#scanlines {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 255, 255, 0.05),
+    rgba(0, 255, 255, 0.05) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  z-index: 0;
+  mix-blend-mode: overlay;
+}
+
+
+
