@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Portfolio - BlackHat Fabe</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="pixelRain"></div>
+  <div id="scanlines"></div>
+
+  <div id="container">
+    <h1 id="dayview">PORTFOLIO</h1>
+    <div id="subtitle">Ops • Tools • Networks • Exploits</div>
+    <section class="project">
+      <h2>Zero-Day Scanner</h2>
+      <p>A custom Python-based tool that searches for undisclosed vulnerabilities in isolated environments using AI heuristics. Developed for secure testing in red team ops.</p>
+    </section>
+    <section class="project">
+      <h2>OpSec Logger</h2>
+      <p>Advanced operational security logging and threat analytics framework built using Rust. Integrated with self-hosted dashboard for mission intel monitoring.</p>
+    </section>
+    <section class="project">
+      <h2>GhostNet Builder</h2>
+      <p>A virtual stealth network simulator designed to replicate darkweb traffic patterns and encrypt signal intelligence using quantum-safe protocols.</p>
+    </section>
+    <section class="project">
+      <h2>FabeShell</h2>
+      <p>Custom Linux shell with encrypted command queuing, voice-activated macros, and keystroke cloaking. Secure shell for field deployment.</p>
+    </section>
+    <nav>
+      <a href="index.html" class="link">Home</a>
+      <a href="contact.html" class="link">Contact</a>
+      <a href="https://github.com/blackhatfabe" class="link" target="_blank">GitHub</a>
+    </nav>
+    <footer>
+      BlackHat Fabe © 2025 — Stay in the shadows.
+    </footer>
+  </div>
+
+<script>
+  // Same pixel rain effect as index.html
+  const pixelRain = document.getElementById('pixelRain');
+  const maxPixels = 300;
+  function random(min, max) {
+    return Math.random() * (max - min) + min;
+  }
+  class PixelDrop {
+    constructor() {
+      this.el = document.createElement('div');
+      this.el.classList.add('pixelDrop');
+      this.reset();
+      pixelRain.appendChild(this.el);
+    }
+    reset() {
+      this.x = random(0, window.innerWidth);
+      this.y = random(-100, -10);
+      this.speed = random(1, 4);
+      this.length = random(5, 15);
+      this.opacity = random(0.3, 0.8);
+      this.el.style.width = '2px';
+      this.el.style.height = this.length + 'px';
+      this.el.style.left = this.x + 'px';
+      this.el.style.top = this.y + 'px';
+      this.el.style.opacity = this.opacity;
+    }
+    fall() {
+      this.y += this.speed;
+      if (this.y > window.innerHeight) this.reset();
+      this.el.style.top = this.y + 'px';
+    }
+  }
+  let pixels = [];
+  for (let i = 0; i < maxPixels; i++) pixels.push(new PixelDrop());
+  function animate() {
+    pixels.forEach(p => p.fall());
+    requestAnimationFrame(animate);
+  }
+  animate();
+</script>
+</body>
+</html>

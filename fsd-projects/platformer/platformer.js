@@ -26,21 +26,32 @@ $(function () {
     // ONLY CHANGE BELOW THIS POINT //
     //////////////////////////////////
 
-    // TODO 1 - Enable the Grid
-    // toggleGrid();
+// TODO 1 - Enable the Grid
+// toggleGrid(); // Uncomment to show grid while building
 
+// TODO 2 - Create Platforms
+createPlatform(0, 580, 1400, 20);          // ground
+createPlatform(100, 450, 200, 20);         // 1st platform
+createPlatform(400, 350, 200, 20);         // 2nd platform
+createPlatform(700, 250, 200, 20);         // 3rd platform
+createPlatform(1000, 150, 200, 20);        // 4th platform
+createPlatform(300, 100, 100, 20);         // top-left tricky
+createPlatform(1250, 400, 100, 20);        // bonus
 
-    // TODO 2 - Create Platforms
+// TODO 3 - Create Collectables
+createCollectable("diamond", 110, 400);
+createCollectable("steve", 720, 200, 0.5, 0.7);
+createCollectable("grace", 1050, 100);
+createCollectable("max", 1300, 370);
 
+// TODO 4 - Create Cannons
+createCannon("left", 300, 1500);
+createCannon("top", 800, 1000);
+createCannon("right", 200, 2000);
 
+// TODO 5 - Make your level challenging!
+// Level includes jumping, timing, dodging, and risk-taking to win!
 
-
-    // TODO 3 - Create Collectables
-
-
-
-    
-    // TODO 4 - Create Cannons
 
 
     
