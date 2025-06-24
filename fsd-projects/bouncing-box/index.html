@@ -2,100 +2,82 @@
 <html>
 
 <head>
-	<meta charset="utf-8">
-	<title>Bouncing Box</title>
-	<script src="jquery.min.js"></script>
-	<style>
-		.box {
-			width: 70px;
-			height: 70px;
-			background-color: teal;
-			font-size: 300%;
-			text-align: center;
-			user-select: none;
-			display: block;
-			position: absolute;
-			top: 100px;
-			/* Change me! */
-			left: 0px;
-		}
+  <meta charset="utf-8" />
+  <title>Bouncing Box</title>
+  <script src="jquery.min.js"></script>
+  <style>
+    .box {
+      width: 100px;
+      height: 70px;
+      background-color: teal;
+      font-size: 300%;
+      text-align: center;
+      user-select: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      top: 100px;
+      left: 0px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
 
-		.board {
-			height: 100vh;
-		}
-	</style>
-	<!-- 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
-
+    .board {
+      height: 100vh;
+    }
+  </style>
 </head>
 
 <body class="board">
-	<!-- HTML for the box -->
-	<div class="box">?</div>
+  <!-- HTML for the box -->
+  <div class="box">0</div>
 
-	<script>
-		(function () {
-			'use strict'
-			/* global jQuery */
+  <script>
+    (function () {
+      'use strict';
+      /* global jQuery */
 
-			//////////////////////////////////////////////////////////////////
-			/////////////////// SETUP DO NOT DELETE //////////////////////////
-			//////////////////////////////////////////////////////////////////
+      var box = jQuery('.box');
+      var board = jQuery('.board');
+      var boardWidth = board.width() - box.width();
 
-			var box = jQuery('.box');	// reference to the HTML .box element
-			var board = jQuery('.board');	// reference to the HTML .board element
-			var boardWidth = board.width();	// the maximum X-Coordinate of the screen
+      setInterval(update, 50);
+      box.on('click', handleBoxClick);
 
-			// Every 50 milliseconds, call the update Function (see below)
-			setInterval(update, 50);
+      var positionX = 0;
+      var points = 0;
+      var speed = 10;
 
-			// Every time the box is clicked, call the handleBoxClick Function (see below)
-			box.on('click', handleBoxClick);
+      function moveBoxTo(newPositionX) {
+        box.css("left", newPositionX);
+      }
 
-			// moves the Box to a new position on the screen along the X-Axis
-			function moveBoxTo(newPositionX) {
-				box.css("left", newPositionX);
-			}
+      function changeBoxText(newText) {
+        box.text(newText);
+      }
 
-			// changes the text displayed on the Box
-			function changeBoxText(newText) {
-				box.text(newText);
-			}
+      function update() {
+        positionX = positionX + speed;
+        moveBoxTo(positionX);
 
-			//////////////////////////////////////////////////////////////////
-			/////////////////// YOUR CODE BELOW HERE /////////////////////////
-			//////////////////////////////////////////////////////////////////
+        if (positionX > boardWidth) {
+          speed *= -1;
+        }
 
-			// TODO 2 - Variable declarations 
-            var positionX = 0;
-			var points = 0;
+        if (positionX < 0) {
+          speed *= -1;
+        }
+      }
 
-			/* 
-			This Function will be called 20 times/second. Each time it is called,
-			it should move the Box to a new location. If the box drifts off the screen
-			turn it around! 
-			*/
-			function update() { 
-				positionX = positionX + 10;
-           		 moveBoxTo(positionX); // Moves the box to the far right edge.
-			};
-
-			/* 
-			This Function will be called each time the box is clicked. Each time it is called,
-			it should increase the points total, increase the speed, and move the box to
-			the left side of the screen.
-			*/
-			function handleBoxClick() {
-				positionX = 0
-				 (0)
-
-			};
-
-
-
-
-
-		})();
-	</script>
+      function handleBoxClick() {
+        positionX = 0;
+        points++;
+        speed = 3 * points + 10;
+        changeBoxText(points);
+      }
+    })();
+  </script>
 </body>
 
 </html>

@@ -1,75 +1,104 @@
-/* Portfolio styles */
-.content h1 {
-  color: black;
-}
-
-#portfolio {
-  list-style-type: none;
-  padding-left: 0;
-}
-
-#portfolio li {
-  background: #fff;
+body {
+  background: #000000;
+  color: #f5f5f5;
   padding: 10px;
-  border-radius: 10px;
-  margin-bottom: 10px;
+  font-family: "Trebuchet MS", sans-serif;
 }
 
-#portfolio li:hover {
-  background: #eee;
+#all-contents {
+  max-width: 900px;
+  margin: auto;
 }
 
-#portfolio a {
+/* Navigation */
+nav {
+  background: #552583; /* Lakers purple */
+  margin: 0 auto;
+  display: flex;
+  padding: 12px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 15px #fdb927;
+}
+
+h1 {
+  display: flex;
+  align-items: center;
+  color: #fdb927; /* Lakers gold */
+  flex: 1;
+  margin: 0;
+  font-size: 2em;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px #000;
+}
+
+#nav-ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.nav-li {
+  display: inline-block;
+  padding: 0 10px;
+}
+
+a {
   text-decoration: none;
-  color: #454545;
+  color: #fdb927;
+  font-weight: bold;
+  transition: color 0.2s ease;
 }
 
-/* responsive web design */
-@media screen and (min-width: 120px) and (max-width: 1080px) {
-  main {
-    height: 100ch;
-    zoom: 1.5;
-    display: grid;
-  }
+a:hover {
+  color: #ffffff;
+}
 
-  h1 {
-    font-size: 44px;
-  }
+/* Main Layout */
+main {
+  background: #121212;
+  display: flex;
+  margin-top: 20px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 10px #fdb92788;
+}
 
-  h2 {
-    font-size: 42px;
-  }
+.sidebar {
+  margin-right: 25px;
+  padding: 10px;
+}
 
-  h3 {
-    font-size: 36px;
-  }
+.sidebar-img {
+  width: 200px;
+  border-radius: 10px;
+  border: 3px solid #fdb927;
+  background-color: #fff;
+}
 
-  #all-contents {
-    height: 100ch;
-    margin: none;
-  }
+.content {
+  flex: 1;
+  padding: 15px;
+}
 
-  a {
-    font-size: 42px;
-  }
+/* Interests Styling */
+#interests {
+  border: 2px solid #fdb927;
+  padding: 10px;
+  margin-top: 20px;
+  background: #1c1c1c;
+  border-radius: 10px;
+}
 
-  .sidebar {
-    margin-right: 0px;
-    justify-content: center;
-    align-items: center;
-  }
+h2 {
+  margin: 0px;
+  color: #fdb927;
+  font-size: 1.5em;
+}
 
-  .sidebar-img {
-    width: 100%;
-  }
-
-  p,
-  li {
-    font-size: 24px;
-  }
-
-  .content {
-    align-content: center;
-    justify-content: center;
-  }
+h3 {
+  margin: 0px;
+  color: #ffffff;
+  margin-bottom: 8px;
 }
